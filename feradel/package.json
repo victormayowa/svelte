@@ -38,7 +38,10 @@
 	"dependencies": {
 		"bits-ui": "^0.18.1",
 		"clsx": "^2.1.0",
+		"embla-carousel-svelte": "^8.0.0",
+		"flowbite": "^2.3.0",
 		"lucide-svelte": "^0.335.0",
+		"swiper": "^11.0.6",
 		"tailwind-merge": "^2.2.1",
 		"tailwind-variants": "^0.2.0"
 	}

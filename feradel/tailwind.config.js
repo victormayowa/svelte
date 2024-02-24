@@ -3,7 +3,10 @@ import { fontFamily } from "tailwindcss/defaultTheme";
 /** @type {import('tailwindcss').Config} */
 const config = {
 	darkMode: ["class"],
-	content: ["./src/**/*.{html,js,svelte,ts}"],
+	content: ["./src/**/*.{html,js,svelte,ts}",  "./node_modules/flowbite/**/*.js"],
+	plugins: [
+        require('flowbite/plugin')
+    ],
   safelist: ["dark"],
 	theme: {
 		container: {
@@ -58,7 +61,7 @@ const config = {
 				sans: [...fontFamily.sans]
 			}
 		}
-	},
+	}
 };
 
 export default config;
