@@ -69,16 +69,21 @@
 	};
 </script>
 
-<div class="flex bg-orange-50 pt-[40px] flex-col lg:flex-row items-center">
+<div class="flex bg-zinc-100 pt-[40px] flex-col lg:flex-row items-center justify-between">
 	<div class="max-w-[400px] text-center">
-		<h1 class="text-4xl p-0 -mt-14">Seamless Collaboration for Secure Real Estate Services <span class="font-semibold italic text-orange-700">anywhere, anytime</span></h1>
+		<h1 class="text-4xl font-bold p-0 mt-40">Making Good things
+			happen <span class="font-semibold italic text-orange-800">anywhere, anytime</span></h1>
 
-		<p class="mt-8 text-xl capitalize">
-			Where Dreams Find Address: Safeguarding Your Real Estate Journey with Expert Guidance, Ensuring Secure Transactions in Buying, Selling, Renting, and Leasing Across Nigeria's Rich Property Spectrum.
+		<p class="mt-2 textsm italic capitalize">
+			Where Dreams Find Address
 		</p>
+		<Button class="mt-10 mb-6  hover:bg-green-800 p-6 font-semibold capitalize hover:text-white text-black bg-transparent border-2 border-green-800"
+			>get started now
+			<ArrowRight class="ml-2 h-5 w-5" />
+		</Button>
 	</div>
-	<div class="w-auto mx-auto">
-		<video class="w-full h-auto max-h-[500px] max-w-[500px] p-[px] rounded-lg m-6" autoplay playsinline loop muted>
+	<div class="">
+		<video class="w-full h-auto max-h-[800px] max-w-[700px] p-[px] rounded-lg m-2" autoplay playsinline loop muted>
 			<track kind="captions" />
 			<source
 				class="rounded-lg"
@@ -86,10 +91,6 @@
 				type="video/mp4"
 			/>
 		</video>
-		<Button class="mt-2 mb-6 ml-40 p-6 font-semibold capitalize text-white"
-			>get started now
-			<ArrowRight class="h-5 w-5" />
-		</Button>
 	</div>
 </div>
 

@@ -1,12 +1,43 @@
 <script lang="ts">
 	import * as Sheet from '$lib/components/ui/sheet';
 	import { Menu } from 'lucide-svelte';
+	import Button from '$lib/components/ui/button/button.svelte';
+	import { ArrowRight } from 'lucide-svelte';
     import * as Avatar from "$lib/components/ui/avatar";
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
+	import { onMount } from 'svelte';
+  	import { writable } from 'svelte/store';
+
+	// Array of navigation items
+	const navItems = writable([
+    { label: 'Home', href: '#' },
+    { label: 'Dropdown', subItems: ['Dashboard', 'Settings', 'Earnings', 'Sign out'] },
+    { label: 'Services', href: '#' },
+    { label: 'Pricing', href: '#' },
+    { label: 'Contact', href: '#' }
+  ]);
+
+  // Function to handle dropdown toggle
+  const toggleDropdown = (index: number) => {
+    const items = $navItems;
+    items[index].open = !items[index].open;
+    navItems.set(items);
+  };
+
+  // Run onMount to initialize dropdown states
+  onMount(() => {
+    navItems.update(items => {
+      return items.map(item => {
+        return { ...item, open: false };
+      });
+    });
+  });
+
 </script>
 
 <nav class="fixed top-0 z-50 w-full border-gray-200 bg-white dark:bg-gray-900">
-	<div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
+	<!-- Logo and dropdown button-->
+	<div class="relative mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
 		<div class="flex items-center gap-5">
 			<Sheet.Root>
 				<Sheet.Trigger
@@ -185,14 +216,57 @@
 				</Sheet.Content>
 			</Sheet.Root>
 			<a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-				<img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
+				<img src="" class="h-8" alt="Logo" />
 				<span class="self-center whitespace-nowrap text-2xl font-semibold dark:text-white"
-					>Flowbite</span
+					>Feradelliance</span
 				>
 			</a>
 		</div>
 
-		<div class="flex items-center space-x-3 md:order-2 md:space-x-0 rtl:space-x-reverse">
+		<!-- Navbar-->
+		<div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
+  <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-green-200 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+    {#each $navItems as item, i}
+      {#if item.subItems}
+        <li>
+          <button
+            class="flex items-center justify-between w-full py-2 px-3
+			text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-green-700 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+            on:click={() => toggleDropdown(i)}>
+            {item.label}
+            <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+            </svg>
+          </button>
+          <!-- Dropdown menu -->
+          {#if item.open}
+            <div class="fixed z-10 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+              <ul class="py-2 text-sm text-gray-700 dark:text-gray-400">
+                {#each item.subItems as subItem}
+                  <li>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{subItem}</a>
+                  </li>
+                {/each}
+              </ul>
+            </div>
+          {/if}
+        </li>
+      {:else}
+        <li>
+          <a href={item.href} class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100
+		  mr-2 font-semibold capitalize md:hover:bg-white text-black md:bg-transparent md:hover:border-b-2 md:hover:border-green-700
+		  md:p-0 dark:text-white  dark:hover:bg-gray-700 dark:hover:text-white ">{item.label}</a>
+        </li>
+      {/if}
+    {/each}
+  </ul>
+</div>
+						
+		  			<!-- login, register, avatar -->
+		  <div class="flex items-center space-x-3 md:order-2 md:space-x-0 rtl:space-x-reverse">
+			<Button class="mr-2 font-semibold capitalize hover:bg-white text-black bg-transparent hover:border-b-2 hover:border-green-700"
+			>Login/Register
+			</Button>
 			<button
 				type="button"
 				class="flex rounded-full bg-gray-800 text-sm focus:ring-4 focus:ring-gray-300 md:me-0 dark:focus:ring-gray-600"
@@ -201,7 +275,7 @@
 				data-dropdown-toggle="user-dropdown"
 				data-dropdown-placement="bottom"
 			>
-				<span class="sr-only">Open user menu</span>
+
 				<DropdownMenu.Root>
 					<DropdownMenu.Trigger>
 						<Avatar.Root>
@@ -222,8 +296,8 @@
 				</DropdownMenu.Root>
 			</button>
 
-			<div
-				class="z-50 my-4 hidden list-none divide-y divide-gray-100 rounded-lg bg-white text-base shadow dark:divide-gray-600 dark:bg-gray-700"
+			<!-- <div
+				class="z-50 my-4 list-none divide-y divide-gray-100 rounded-lg bg-white text-base shadow dark:divide-gray-600 dark:bg-gray-700"
 				id="user-dropdown"
 			>
 				<div class="px-4 py-3">
@@ -262,9 +336,9 @@
 						>
 					</li>
 				</ul>
-			</div>
+			</div> -->
 		</div>
-		<div
+		<!-- <div
 			class="hidden w-full items-center justify-between md:order-1 md:flex md:w-auto"
 			id="navbar-user"
 		>
@@ -307,6 +381,6 @@
 					>
 				</li>
 			</ul>
-		</div>
+		</div> -->
 	</div>
 </nav>
