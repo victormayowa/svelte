@@ -1,6 +1,7 @@
 <script lang='ts'>
 	
 	import Hero from "$lib/components/Hero.svelte";
+	import Listing from "$lib/components/Listing.svelte";
     import Service from "$lib/components/Service.svelte";
 </script>
 
@@ -10,6 +11,7 @@
 	<div class="p-2 border-2 border-gray-200 border- rounded-lg dark:border-gray-700 mt-14">
         <Hero />
 		<Service />
+		<Listing />
 		<div class="grid grid-cols-2 gap-4 mb-4">
 			<div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
 				<p class="text-2xl text-gray-400 dark:text-gray-500">
