@@ -1,0 +1,20 @@
+Protocol Development
+A protocol is the plan or set of steps to be followed in a study.  A protocol for a systematic review should describe the rationale for the review, the objectives, and the methods that will be used to locate, select, and critically appraise studies, and to collect and analyze data from the included studies.
+
+Advantages to producing a protocol
+Helps keep you on track 
+Helps you describe and explain your methods 
+Provide constructive criticism 
+Helps your reader understand what you have done
+
+
+What to Include in a Protocol?
+Conceptual discussion of the problem
+Review questions and objectives
+Search strategy
+Study selection criteria
+Study quality assessments
+Data extraction procedure
+Data synthesis procedure
+Project timeline
+

@@ -216,7 +216,7 @@
 				</Sheet.Content>
 			</Sheet.Root>
 			<a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-				<img src="https://github.com/victormayowa/svelte/blob/main/feradel/static/Gemini_Generated_Image%20(5).jpg?raw=true" class="h-8" alt="Logo" />
+				<img src="https://github.com/victormayowa/svelte/blob/main/feradel/static/Gemini_Generated_Image%20(6).jpg?raw=true" class="h-10 rounded-full" alt="Logo" />
 				<span class="self-center whitespace-nowrap text-2xl font-semibold dark:text-white"
 					>Feradelliance</span
 				>
