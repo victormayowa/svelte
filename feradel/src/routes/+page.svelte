@@ -1,8 +1,8 @@
 <script lang='ts'>
 	
 	import Hero from "$lib/components/Hero.svelte";
-	import Listing from "$lib/components/Listing.svelte";
-    import Service from "$lib/components/Service.svelte";
+	import Listing from "$lib/components/homepage/Listing.svelte";
+    import Service from "$lib/components/homepage/Service.svelte";
 </script>
 
 
